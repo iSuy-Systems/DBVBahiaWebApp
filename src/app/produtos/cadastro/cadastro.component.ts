@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ import { Picture } from '../models/Picture.model';
 })
 export class CadastroComponent implements OnInit {
 
-  produtoForm: FormGroup;
+  produtoForm: UntypedFormGroup;
   produto: Produto;
   errors: any[] = [];
   fornecedores: Fornecedor[];
@@ -23,7 +23,7 @@ export class CadastroComponent implements OnInit {
   imagemNome: string;
   imageBase64: any;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private router: Router,
               private produtoService: ProdutoService) {
 
@@ -45,7 +45,7 @@ export class CadastroComponent implements OnInit {
       imagemUpload: '',
       imagem: '',
       valor: '0',
-      ativo: new FormControl(false),
+      ativo: new UntypedFormControl(false),
       nomeFornecedor: ''  
     });
   }
