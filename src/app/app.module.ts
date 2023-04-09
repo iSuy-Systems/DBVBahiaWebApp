@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './produtos/cadastro/cadastro.component';
-import { ProdutoService } from './produtos/services/produtoService';
+import { ProdutoService } from './produtos/services/produto.service';
 import { ListaComponent } from './produtos/lista/lista.component';
 import { LoginComponent } from './user/login/login.component';
 import { UserService } from './user/userService';

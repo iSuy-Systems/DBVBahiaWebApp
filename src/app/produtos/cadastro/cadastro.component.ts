@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 import { Produto } from '../models/Produto';
 import { Fornecedor } from '../models/Fornecedor';
-import { ProdutoService } from '../services/produtoService';
+import { ProdutoService } from '../services/produto.service';
 import { Picture } from '../models/Picture.model';
 
 @Component({
@@ -46,7 +46,7 @@ export class CadastroComponent implements OnInit {
       imagem: '',
       valor: '0',
       ativo: new UntypedFormControl(false),
-      nomeFornecedor: ''  
+      nomeFornecedor: ''
     });
   }
 
@@ -108,7 +108,5 @@ export class CadastroComponent implements OnInit {
   manipularReader(readerEvt: any) {
     var binaryString = readerEvt.target.result;
     this.imageBase64 = btoa(binaryString);
-  } 
+  }
 }
-
-

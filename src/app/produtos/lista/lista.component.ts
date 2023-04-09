@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProdutoService } from '../services/produtoService';
+import { ProdutoService } from '../services/produto.service';
 import { Produto } from '../models/Produto';
+import { ConverterService } from '../services/converter.service';
 
 @Component({
   selector: 'app-lista',
@@ -8,10 +9,9 @@ import { Produto } from '../models/Produto';
 })
 export class ListaComponent implements OnInit {
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService, private convertService: ConverterService) { }
 
   public produtos: Produto[];
-  public imageURL: string;
   errorMessage: string;
 
   ngOnInit() {
@@ -19,6 +19,10 @@ export class ListaComponent implements OnInit {
       .subscribe(
         produtos => this.produtos = produtos,
         error => this.errorMessage = error,
-    );   
+    );
+  }
+
+  setSrcImg(base64: string){
+    return this.convertService.convertBase64ToFile(base64);
   }
 }
