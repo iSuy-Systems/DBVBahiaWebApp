@@ -3,9 +3,9 @@ import { HttpClient } from "@angular/common/http";
 
 import { Observable } from 'rxjs';
 import { catchError, map } from "rxjs/operators";
-import { Fornecedor } from '../models/Fornecedor';
-import { Produto } from '../models/Produto';
-import { BaseService } from 'src/app/base/baseService';
+import { Fornecedor } from '../models/fornecedor/Fornecedor';
+import { Produto } from '../models/produto/Produto';
+import { BaseService } from 'src/app/base/base.service';
 
 @Injectable()
 export class ProdutoService extends BaseService {

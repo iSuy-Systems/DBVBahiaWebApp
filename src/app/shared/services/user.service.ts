@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { User } from './user';
-import { BaseService } from '../base/baseService';
+import { User } from '../models/auth/user.model';
+import { BaseService } from '../../base/base.service';
 
 
 @Injectable()

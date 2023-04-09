@@ -1,5 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { User } from '../shared/models/auth/user.model';
 
 export abstract class BaseService {
 
@@ -37,7 +38,7 @@ export abstract class BaseService {
     }
 
     public obterUsuario() {
-        return JSON.parse(localStorage.getItem('app.user'));
+        return JSON.parse(localStorage.getItem('app.user')) as User;
     }
 
     protected obterTokenUsuario(): string {

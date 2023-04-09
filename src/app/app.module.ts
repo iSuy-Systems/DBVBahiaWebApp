@@ -5,19 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CadastroComponent } from './produtos/cadastro/cadastro.component';
-import { ProdutoService } from './produtos/services/produto.service';
-import { ListaComponent } from './produtos/lista/lista.component';
 import { LoginComponent } from './user/login/login.component';
-import { UserService } from './user/userService';
+import { UserService } from './shared/services/user.service';
 import { MenuUserComponent } from './user/menu/menu.user.component';
 import { MenuComponent } from './base/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroComponent,
-    ListaComponent,
     LoginComponent,
     MenuUserComponent,
     MenuComponent
@@ -25,12 +20,9 @@ import { MenuComponent } from './base/menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [
-    ProdutoService,
     UserService
   ],
   bootstrap: [AppComponent]
