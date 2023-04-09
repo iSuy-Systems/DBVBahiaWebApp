@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo-webapi": {
+    "dbvbahia-webapp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "outputPath": "dist/demo-webapi",
+            "outputPath": "dist/dbvbahia-webapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,7 +39,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -62,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-webapi:build"
+            "browserTarget": "dbvbahia-webapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo-webapi:build:production"
+              "browserTarget": "dbvbahia-webapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-webapi:build"
+            "browserTarget": "dbvbahia-webapp:build"
           }
         },
         "test": {
@@ -107,7 +106,7 @@
         }
       }
     },
-    "demo-webapi-e2e": {
+    "dbvbahia-webapp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "demo-webapi:serve"
+            "devServerTarget": "dbvbahia-webapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demo-webapi:serve:production"
+              "devServerTarget": "dbvbahia-webapp:serve:production"
             }
           }
         },
@@ -136,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "demo-webapi"
+  "defaultProject": "dbvbahia-webapp"
 }
