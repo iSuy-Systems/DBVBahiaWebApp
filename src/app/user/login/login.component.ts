@@ -6,7 +6,8 @@ import { User } from '../../shared/models/auth/user.model';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   userForm: UntypedFormGroup;
