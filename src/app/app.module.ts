@@ -12,6 +12,10 @@ import { LoginComponent } from './user/login/login.component';
 import { UserService } from './user/userService';
 import { MenuUserComponent } from './user/menu/menu.user.component';
 import { MenuComponent } from './base/menu/menu.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { RegisterComponent } from './user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +24,20 @@ import { MenuComponent } from './base/menu/menu.component';
     ListaComponent,
     LoginComponent,
     MenuUserComponent,
-    MenuComponent
+    MenuComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [
     ProdutoService,
