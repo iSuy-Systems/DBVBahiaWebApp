@@ -1,4 +1,4 @@
-import { Picture } from "./Picture.model";
+import { Picture } from "../common/Picture.model";
 
 export class Produto {
   fornecedorId: string;

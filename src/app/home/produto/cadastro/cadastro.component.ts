@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
-import { Produto } from '../models/Produto';
-import { Fornecedor } from '../models/Fornecedor';
-import { ProdutoService } from '../services/produto.service';
-import { Picture } from '../models/Picture.model';
+import { Produto } from '../../../shared/models/produto/Produto';
+import { Fornecedor } from '../../../shared/models/fornecedor/Fornecedor';
+import { ProdutoService } from '../../../shared/services/produto.service';
+import { Picture } from '../../../shared/models/common/Picture.model';
 
 @Component({
   selector: 'app-cadastro',

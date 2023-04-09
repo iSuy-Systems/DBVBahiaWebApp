@@ -1,47 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CadastroComponent } from './produtos/cadastro/cadastro.component';
-import { ProdutoService } from './produtos/services/produto.service';
-import { ListaComponent } from './produtos/lista/lista.component';
-import { LoginComponent } from './user/login/login.component';
-import { UserService } from './user/userService';
+import { UserService } from './shared/services/user.service';
 import { MenuUserComponent } from './user/menu/menu.user.component';
 import { MenuComponent } from './base/menu/menu.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './angular-material.module';
-import { RegisterComponent } from './user/register/register.component';
+import { AuthGuard } from './base/auth-guard.service';
+import { LoginGuard } from './user/login-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroComponent,
-    ListaComponent,
-    LoginComponent,
     MenuUserComponent,
-    MenuComponent,
-    RegisterComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    ProdutoService,
-    UserService
+    UserService,
+    AuthGuard,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

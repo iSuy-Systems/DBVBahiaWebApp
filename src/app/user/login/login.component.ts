@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../userService';
-import { User } from '../user';
+import { UserService } from '../../shared/services/user.service';
+import { User } from '../../shared/models/auth/user.model';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   onSaveComplete(response: any) {
     this.userService.persistirUserApp(response);
-    this.router.navigateByUrl('/lista-produtos');
+    this.router.navigateByUrl('/');
   }
 
   onError(fail: any) {

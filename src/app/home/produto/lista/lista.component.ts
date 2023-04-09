@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProdutoService } from '../services/produto.service';
-import { Produto } from '../models/Produto';
-import { ConverterService } from '../services/converter.service';
+import { Produto } from 'src/app/shared/models/produto/Produto';
+import { ConverterService } from 'src/app/shared/services/converter.service';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
 
 @Component({
   selector: 'app-lista',
