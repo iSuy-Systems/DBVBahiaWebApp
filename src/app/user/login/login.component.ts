@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   onSaveComplete(response: any) {
     this.userService.persistirUserApp(response);
-    this.router.navigateByUrl('/lista-produtos');
+    this.router.navigateByUrl('/');
   }
 
   onError(fail: any) {

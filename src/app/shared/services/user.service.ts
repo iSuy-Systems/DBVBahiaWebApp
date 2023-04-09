@@ -10,20 +10,25 @@ import { BaseService } from '../../base/base.service';
 @Injectable()
 export class UserService extends BaseService {
 
-    constructor(private http: HttpClient) { super() }
+  constructor(private http: HttpClient) { super() }
 
-    login(user: User): Observable<User> {
+  login(user: User): Observable<User> {
 
-        return this.http
-            .post(this.UrlServiceV1 + 'entrar', user, super.ObterHeaderJson())
-            .pipe(
-                map(super.extractData),
-                catchError(super.serviceError)
-            );
-    }
+    return this.http
+      .post(this.UrlServiceV1 + 'entrar', user, super.ObterHeaderJson())
+      .pipe(
+        map(super.extractData),
+        catchError(super.serviceError)
+      );
+  }
 
-    persistirUserApp(response: any){
-        localStorage.setItem('app.token', response.accessToken);
-        localStorage.setItem('app.user', JSON.stringify(response.userToken));
-    }
+  logout() {
+    localStorage.setItem('app.user', null);
+    localStorage.setItem('app.token', null);
+  }
+
+  persistirUserApp(response: any) {
+    localStorage.setItem('app.token', response.accessToken);
+    localStorage.setItem('app.user', JSON.stringify(response.userToken));
+  }
 }

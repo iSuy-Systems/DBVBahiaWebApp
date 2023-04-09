@@ -12,6 +12,7 @@ import { AngularMaterialModule } from '../angular-material.module';
   ],
   exports:[
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     AngularMaterialModule
