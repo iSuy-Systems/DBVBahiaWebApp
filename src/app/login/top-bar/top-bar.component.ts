@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/auth/user.model';
 
 @Component({
-  selector: 'app-menu-user',
-  templateUrl: './menu.user.component.html'
+  selector: 'app-top-bar',
+  templateUrl: './top-bar.component.html'
 })
-export class MenuUserComponent {
+export class TopBarComponent {
 
   saudacao: string;
   user: User;
@@ -26,6 +26,6 @@ export class MenuUserComponent {
 
   logout(){
     this.userService.logout();
-    this.router.navigate(['/entrar']);
+    this.router.navigate(['login']);
   }
 }

@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { UserComponent } from './user.component';
+import { LoginComponent } from './login.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: UserComponent,
     children: [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'entrar'
+        component: LoginComponent
       },
-      { path: 'entrar', component: LoginComponent },
       { path: 'register', component: RegisterComponent }
     ],
   }
@@ -29,4 +26,4 @@ export const routes: Routes = [
   ],
   providers: []
 })
-export class UserRoutingModule { }
+export class LoginRoutingModule { }

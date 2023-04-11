@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularMaterialModule } from '../angular-material.module';
+import { AppFooterComponent } from './components/app-footer/app-footer.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,11 @@ import { AngularMaterialModule } from '../angular-material.module';
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AppFooterComponent
   ],
-  declarations: []
+  declarations: [
+    AppFooterComponent
+  ]
 })
 export class SharedModule { }
