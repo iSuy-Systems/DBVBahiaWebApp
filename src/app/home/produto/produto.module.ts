@@ -5,6 +5,7 @@ import { ProdutoRoutingModule } from './produto-routing.module';
 import { ListaComponent } from './lista/lista.component';
 import { ProdutoService } from 'src/app/shared/services/produto.service';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
   declarations: [
     ProdutoComponent,
     ListaComponent,
-    CadastroComponent
+    CadastroComponent,
+    EditComponent
   ],
   providers: [
     ProdutoService

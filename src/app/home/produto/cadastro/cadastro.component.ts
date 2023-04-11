@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ import { Picture } from '../../../shared/models/common/Picture.model';
 })
 export class CadastroComponent implements OnInit {
 
-  produtoForm: UntypedFormGroup;
+  productForm: UntypedFormGroup;
   produto: Produto;
   errors: any[] = [];
   fornecedores: Fornecedor[];
@@ -38,25 +38,25 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.produtoForm = this.fb.group({
+    this.productForm = this.fb.group({
       fornecedorId: '',
       nome: '',
       descricao: '',
       imagemUpload: '',
       imagem: '',
-      valor: '0',
+      valor: ['', [Validators.required, Validators.min(0.01)]],
       ativo: new UntypedFormControl(false),
       nomeFornecedor: ''
     });
   }
 
   cadastrarProduto() {
-    if (this.produtoForm.valid && this.produtoForm.dirty) {
+    if (this.productForm.valid && this.productForm.dirty) {
 
-      let produtoForm = Object.assign({}, this.produto, this.produtoForm.value);
-      produtoForm.ativo = this.produtoForm.get('ativo').value
+      let productForm = Object.assign({}, this.produto, this.productForm.value);
+      productForm.ativo = this.productForm.get('ativo').value
 
-      this.produtoHandle(produtoForm)
+      this.produtoHandle(productForm)
         .subscribe(
           result => { this.onSaveComplete(result) },
           fail => { this.onError(fail) }
@@ -94,10 +94,18 @@ export class CadastroComponent implements OnInit {
     return this.produtoService.registrarProduto(produto);
   }
 
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.imagemNome = "";
+    debugger
+    if (file) {
+      this.imagemNome = file.name;
+    }
+  }
+
   upload(file: any) {
     // necessario para upload via IformFile
     this.imagemForm = file[0];
-    this.imagemNome = file[0].name;
 
     // necessario para upload via base64
     var reader = new FileReader();

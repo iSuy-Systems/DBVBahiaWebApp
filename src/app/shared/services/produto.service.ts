@@ -18,6 +18,20 @@ export class ProdutoService extends BaseService {
                 catchError(this.serviceError));
     }
 
+    getProduct(productId: string): Observable<Produto> {
+      return this.http
+          .get<Produto>(this.UrlServiceV1 + `produtos/${productId}`, super.ObterAuthHeaderJson())
+          .pipe(
+              catchError(this.serviceError));
+    }
+
+    updateProduct(product: Produto): Observable<Produto> {
+      return this.http
+          .put<Produto>(this.UrlServiceV1 + `produtos/${product.id}`, product, super.ObterAuthHeaderJson())
+          .pipe(
+              catchError(this.serviceError));
+    }
+
     registrarProdutoAlternativo(produto: FormData): Observable<Produto> {
 
         return this.http
