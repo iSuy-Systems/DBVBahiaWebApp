@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularMaterialModule } from '../angular-material.module';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 
 @NgModule({
@@ -10,6 +12,7 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    CurrencyMaskModule
   ],
   exports:[
     FormsModule,
@@ -17,7 +20,8 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
     ReactiveFormsModule,
     FlexLayoutModule,
     AngularMaterialModule,
-    AppFooterComponent
+    AppFooterComponent,
+    CurrencyMaskModule
   ],
   declarations: [
     AppFooterComponent

@@ -1,15 +1,16 @@
-<h3 style="padding-top: 50px">Novo Produto </h3>
+<h3 style="padding-top: 50px">Editar Produto</h3>
 
 <hr>
 <div class="row">
   <div class="col-md-10">
-    <form enctype="multipart/form-data" (ngSubmit)="cadastrarProduto()" [formGroup]="productForm">
+    <form enctype="multipart/form-data" (ngSubmit)="editProduct()" [formGroup]="productForm">
       <div class="alert alert-danger" *ngIf="errors?.length > 0">
-        <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+        <h3 id="msgRetorn">Opa! Alguma coisa não deu certo:</h3>
         <ul>
           <li *ngFor="let error of errors">{{ error }}</li>
         </ul>
       </div>
+
       <div class="form-group">
         <label class="control-label" for="FornecedorId">Fornecedor</label>
         <select class="form-control" data-val="true" formControlName="fornecedorId"
@@ -49,8 +50,6 @@
             type="file" class="custom-file-input" id="ImagemUpload" name="ImagemUpload" data-val="true"
             data-val-required="Preencha o campo Imagem" required
             [ngClass]="{ 'is-invalid': productForm.get('imagemUpload').invalid && (productForm.get('imagemUpload').dirty || productForm.get('imagemUpload').touched) }" (change)="onFileSelected($event)">
-
-          <label data-browse="Procurar" style="width: 400px" class="custom-file-label" for="ImagemUpload"></label>
           <label *ngIf="imagemNome" id="img_nome">{{imagemNome}}</label>
         </div>
 
@@ -59,10 +58,8 @@
       </div>
       <div class="form-group">
         <label class="control-label" for="Valor">Valor</label>
-        <input formControlName="valor" class="form-control" type="text" currencyMask
-          [options]="{ align: 'left', allowNegative: false, decimal: ',', prefix: 'R$ ', precision: 2, thousands: '.' }"
-          [ngClass]="{ 'is-invalid': productForm.get('valor').invalid && (productForm.get('valor').dirty || productForm.get('valor').touched) }"
-          id="Valor" name="Valor" required>
+        <input formControlName="valor" class="form-control" type="text" currencyMask [options]="{ align: 'left', allowNegative: false, decimal: ',', prefix: 'R$ ', precision: 2, thousands: '.' }"
+          [ngClass]="{ 'is-invalid': productForm.get('valor').invalid && (productForm.get('valor').dirty || productForm.get('valor').touched) }" id="Valor" name="Valor" required>
         <span class="text-danger field-validation-valid" data-valmsg-for="Valor" data-valmsg-replace="true"></span>
       </div>
       <div class="form-group form-check">
@@ -72,7 +69,7 @@
         </label>
       </div>
       <div class="form-group">
-        <input type="submit" value="Cadastrar" class="btn btn-primary">
+        <input type="submit" value="Atualizar" class="btn btn-primary">
         <a class="btn btn-info" [routerLink]="['/produto/lista-produtos']">Voltar</a>
       </div>
     </form>

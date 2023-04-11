@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProdutoComponent } from './produto.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListaComponent } from './lista/lista.component';
+import { EditComponent } from './edit/edit.component';
 
 export const routes: Routes = [
   {
@@ -15,7 +16,8 @@ export const routes: Routes = [
         redirectTo: 'lista-produtos'
       },
       { path: 'lista-produtos', component: ListaComponent },
-      { path: 'cadastro-produtos', component: CadastroComponent }
+      { path: 'cadastro-produtos', component: CadastroComponent },
+      { path: 'edit-product/:productId', component: EditComponent }
     ],
   }
 ];
