@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserService } from './shared/services/user.service';
-import { MenuUserComponent } from './user/menu/menu.user.component';
+import { TopBarComponent } from './login/top-bar/top-bar.component';
 import { MenuComponent } from './base/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './base/auth-guard.service';
-import { LoginGuard } from './user/login-guard.service';
+import { LoginGuard } from './login/login-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuUserComponent,
+    TopBarComponent,
     MenuComponent
   ],
   imports: [

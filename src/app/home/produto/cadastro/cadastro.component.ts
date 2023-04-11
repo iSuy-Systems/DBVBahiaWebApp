@@ -30,7 +30,7 @@ export class CadastroComponent implements OnInit {
     this.produtoService.obterFornecedores()
       .subscribe(
         fornecedores => this.fornecedores = fornecedores,
-        fail => this.errors = fail.error.errors
+        fail => this.errors = fail.error?.errors
       );
 
     this.imagemForm = new FormData();
@@ -65,11 +65,11 @@ export class CadastroComponent implements OnInit {
   }
 
   onSaveComplete(response: any) {
-    this.router.navigate(['/lista-produtos']);
+    this.router.navigate(['/produto/lista-produtos']);
   }
 
   onError(fail: any) {
-    this.errors = fail.error.errors;
+    this.errors = fail.error?.errors;
   }
 
   produtoHandleAlternativo(produto: Produto): Observable<Produto> {
