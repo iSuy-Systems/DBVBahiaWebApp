@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Picture } from 'src/app/shared/models/common/Picture.model';
 import { Fornecedor } from 'src/app/shared/models/fornecedor/Fornecedor';
@@ -10,7 +10,7 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  styleUrls: []
 })
 export class EditComponent implements OnInit {
   productForm: FormGroup;
@@ -24,7 +24,8 @@ export class EditComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private productService: ProdutoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
     this.productService.obterFornecedores()
     .subscribe(
@@ -51,7 +52,6 @@ export class EditComponent implements OnInit {
 
     this.productService.getProduct(this.productId).subscribe((product) => {
       this.productForm.patchValue(product);
-      debugger
       this.imagemNome = product.picture.name;
     });
   }
@@ -61,6 +61,7 @@ export class EditComponent implements OnInit {
     updatedProduct.id = this.productId;
     this.productUpdateHandle(updatedProduct).subscribe(() => {
       console.log('Product updated!');
+      this.router.navigate(['produto/lista-produtos']);
     });
   }
 
@@ -77,7 +78,6 @@ export class EditComponent implements OnInit {
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     this.imagemNome = "";
-    debugger
     if (file) {
       this.imagemNome = file.name;
     }
@@ -87,8 +87,7 @@ export class EditComponent implements OnInit {
     // necessario para upload via IformFile
     // this.imagemForm = file[0];
     this.imagemNome = file[0].name;
-debugger
-    if(file[0].size > 410){
+    if(file[0].size > 5222510){
       this.errors.push("Imagem excedeu o tamanho. Máximo permitido 5MB");
       return;
     }

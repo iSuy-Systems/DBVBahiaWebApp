@@ -46,10 +46,11 @@
         <label class="control-label" for="ImagemUpload">Imagem do Produto</label>
 
         <div class="custom-file">
-          <input accept="image/jpeg" #fileInput (change)="upload(fileInput.files)" formControlName="imagemUpload"
+           <input accept="image/jpeg" #fileInput (change)="upload(fileInput.files)" formControlName="imagemUpload"
             type="file" class="custom-file-input" id="ImagemUpload" name="ImagemUpload" data-val="true"
             data-val-required="Preencha o campo Imagem" required
             [ngClass]="{ 'is-invalid': productForm.get('imagemUpload').invalid && (productForm.get('imagemUpload').dirty || productForm.get('imagemUpload').touched) }" (change)="onFileSelected($event)">
+            <label data-browse="Procurar" style="width: 400px" class="custom-file-label" for="ImagemUpload"></label>
           <label *ngIf="imagemNome" id="img_nome">{{imagemNome}}</label>
         </div>
 
