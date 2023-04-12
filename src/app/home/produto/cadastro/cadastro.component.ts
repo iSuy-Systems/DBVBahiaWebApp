@@ -97,7 +97,6 @@ export class CadastroComponent implements OnInit {
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     this.imagemNome = "";
-    debugger
     if (file) {
       this.imagemNome = file.name;
     }
@@ -106,6 +105,11 @@ export class CadastroComponent implements OnInit {
   upload(file: any) {
     // necessario para upload via IformFile
     this.imagemForm = file[0];
+
+    if(file[0].size > 5222510){
+      this.errors.push("Imagem excedeu o tamanho. Máximo permitido 5MB");
+      return;
+    }
 
     // necessario para upload via base64
     var reader = new FileReader();
