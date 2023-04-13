@@ -31,7 +31,7 @@
           {{ produto.valor | currency:'BRL':symbol:'1.2-2' }}
         </td>
         <td>
-          <input class="check-box" [checked]="produto.ativo === true" type="checkbox">
+          <input class="check-box" [checked]="produto.ativo === true" type="checkbox" (change)="updateAtivo(produto, $event.target.checked)">
         </td>
         <td class="text-right">
           <a class="btn btn-warning" href="#">
@@ -40,8 +40,8 @@
           <a class="btn btn-info" href="/produto/edit-product/{{produto.id}}">
             <span class="fa fa-pencil-alt"></span>
           </a>
-          <a class="btn btn-danger" href="#">
-            <span class="fa fa-trash"></span>
+          <a class="btn btn-danger">
+            <span class="fa fa-trash" (click)="deleteProduct(produto)"></span>
           </a>
         </td>
       </tr>

@@ -9,54 +9,61 @@ import { BaseService } from 'src/app/base/base.service';
 
 @Injectable()
 export class ProdutoService extends BaseService {
-    constructor(private http: HttpClient) { super() }
+  constructor(private http: HttpClient) { super() }
 
-    obterTodos(): Observable<Produto[]> {
-        return this.http
-            .get<Produto[]>(this.UrlServiceV1 + "produtos", super.ObterAuthHeaderJson())
-            .pipe(
-                catchError(this.serviceError));
-    }
+  obterTodos(): Observable<Produto[]> {
+    return this.http
+      .get<Produto[]>(this.UrlServiceV1 + "produtos", super.ObterAuthHeaderJson())
+      .pipe(
+        catchError(this.serviceError));
+  }
 
-    getProduct(productId: string): Observable<Produto> {
-      return this.http
-          .get<Produto>(this.UrlServiceV1 + `produtos/${productId}`, super.ObterAuthHeaderJson())
-          .pipe(
-              catchError(this.serviceError));
-    }
+  getProduct(productId: string): Observable<Produto> {
+    return this.http
+      .get<Produto>(this.UrlServiceV1 + `produtos/${productId}`, super.ObterAuthHeaderJson())
+      .pipe(
+        catchError(this.serviceError));
+  }
 
-    updateProduct(product: Produto): Observable<Produto> {
-      return this.http
-          .put<Produto>(this.UrlServiceV1 + `produtos/${product.id}`, product, super.ObterAuthHeaderJson())
-          .pipe(
-              catchError(this.serviceError));
-    }
+  deleteProduct(productId: string): Observable<Produto> {
+    return this.http
+      .delete<Produto>(this.UrlServiceV1 + `produtos/${productId}`, super.ObterAuthHeaderJson())
+      .pipe(
+        catchError(this.serviceError));
+  }
 
-    registrarProdutoAlternativo(produto: FormData): Observable<Produto> {
+  updateProduct(product: Produto): Observable<Produto> {
+    return this.http
+      .put<Produto>(this.UrlServiceV1 + `produtos/${product.id}`, product, super.ObterAuthHeaderJson())
+      .pipe(
+        catchError(this.serviceError));
+  }
 
-        return this.http
-            .post(this.UrlServiceV1 + 'produtos/adicionar', produto, super.ObterHeaderFormData())
-            .pipe(
-                map(super.extractData),
-                catchError(super.serviceError)
-            );
-    }
+  registrarProdutoAlternativo(produto: FormData): Observable<Produto> {
 
-    registrarProduto(produto: Produto): Observable<Produto> {
+    return this.http
+      .post(this.UrlServiceV1 + 'produtos/adicionar', produto, super.ObterHeaderFormData())
+      .pipe(
+        map(super.extractData),
+        catchError(super.serviceError)
+      );
+  }
 
-        return this.http
-            .post(this.UrlServiceV1 + 'produtos', produto, super.ObterAuthHeaderJson())
-            .pipe(
-                map(super.extractData),
-                catchError(super.serviceError)
-            );
-    }
+  registrarProduto(produto: Produto): Observable<Produto> {
 
-    obterFornecedores(): Observable<Fornecedor[]> {
-        return this.http
-            .get<Fornecedor[]>(this.UrlServiceV1 + 'fornecedores', super.ObterAuthHeaderJson())
-            .pipe(
-                catchError(super.serviceError)
-            );
-    }
+    return this.http
+      .post(this.UrlServiceV1 + 'produtos', produto, super.ObterAuthHeaderJson())
+      .pipe(
+        map(super.extractData),
+        catchError(super.serviceError)
+      );
+  }
+
+  obterFornecedores(): Observable<Fornecedor[]> {
+    return this.http
+      .get<Fornecedor[]>(this.UrlServiceV1 + 'fornecedores', super.ObterAuthHeaderJson())
+      .pipe(
+        catchError(super.serviceError)
+      );
+  }
 }
