@@ -34,14 +34,14 @@
           <input class="check-box" [checked]="produto.ativo === true" type="checkbox" (change)="updateAtivo(produto, $event.target.checked)">
         </td>
         <td class="text-right">
-          <a class="btn btn-warning" href="#">
+          <a class="btn btn-warning cursor-pointer" (click)="redirectToRoute('details-product', produto.id)">
             <span class="fa fa-search"></span>
           </a>
-          <a class="btn btn-info" href="/produto/edit-product/{{produto.id}}">
+          <a class="btn btn-info cursor-pointer" (click)="redirectToRoute('edit-product', produto.id)">
             <span class="fa fa-pencil-alt"></span>
           </a>
-          <a class="btn btn-danger">
-            <span class="fa fa-trash" (click)="deleteProduct(produto)"></span>
+          <a class="btn btn-danger cursor-pointer" (click)="redirectToRoute('delete-product', produto.id)">
+            <span class="fa fa-trash"></span>
           </a>
         </td>
       </tr>

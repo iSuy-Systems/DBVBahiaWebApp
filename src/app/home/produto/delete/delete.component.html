@@ -1,0 +1,48 @@
+<div class="card">
+  <div *ngIf="($product | async) as product" class="row no-gutters">
+    <aside class="col-md-6">
+      <article class="gallery-wrap">
+        <div *ngIf="product.picture" class="img-big-wrap" style="text-align: center">
+          <img [src]="setSrcImg(product.picture.imagemUpload64)" alt="{{product.picture.name}}">
+        </div>
+      </article>
+    </aside>
+    <main class="col-md-6 border-left">
+      <article class="content-body">
+        <h2 class="title">{{product.nome}}</h2>
+
+        <div class="rating-wrap my-3">
+          <ul class="rating-stars">
+            <li style="width: 80%" class="stars-active">
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </li>
+            <li>
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-3">
+          <var class="price h4"> {{product.valor | currency:'BRL':'R$ ':'1.2-2'}}</var>
+        </div>
+
+        <h5>{{product.descricao}}</h5><br />
+        <p></p>
+
+        <hr>
+        <div class="btns">
+          <a class="btn btn-info" (click)="backListProduct()">
+            <span class="text">Voltar</span>
+          </a>
+          <a class="btn btn-danger" (click)="deleteProduct()">
+            <span class="text">Apagar</span>
+          </a>
+        </div>
+      </article>
+    </main>
+  </div>
+</div>
