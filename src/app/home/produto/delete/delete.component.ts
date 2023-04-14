@@ -12,7 +12,7 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 })
 export class DeleteComponent implements OnInit {
 
-  $product = new BehaviorSubject<Produto>(new Produto());
+  product$ = new BehaviorSubject<Produto>(new Produto());
   productId: string;
 
   constructor(
@@ -26,7 +26,7 @@ export class DeleteComponent implements OnInit {
     this.productId = this.route.snapshot.paramMap.get('productId');
 
     this.productService.getProduct(this.productId).subscribe((product: Produto) => {
-      this.$product.next(product);
+      this.product$.next(product);
     });
   }
 
@@ -36,7 +36,7 @@ export class DeleteComponent implements OnInit {
 
   deleteProduct(): void {
     this.productService.deleteProduct(this.productId).subscribe(()=>{
-      console.log(`Product ${this.$product.getValue().nome} was deleted!`);
+      console.log(`Product ${this.product$.getValue().nome} was deleted!`);
       this.backListProduct();
     });
 

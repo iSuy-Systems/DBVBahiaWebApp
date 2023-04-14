@@ -12,7 +12,7 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 })
 export class DetailsComponent implements OnInit {
 
-  $product = new BehaviorSubject<Produto>(new Produto());
+  product$ = new BehaviorSubject<Produto>(new Produto());
   productId: string;
 
   constructor(
@@ -25,7 +25,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.productId = this.route.snapshot.paramMap.get('productId');
     this.productService.getProduct(this.productId).subscribe((product: Produto) => {
-      this.$product.next(product);
+      this.product$.next(product);
     });
   }
 

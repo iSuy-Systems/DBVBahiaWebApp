@@ -1,5 +1,5 @@
 <div class="card">
-  <div *ngIf="($product | async) as product" class="row no-gutters">
+  <div *ngIf="(product$ | async) as product" class="row no-gutters">
     <aside class="col-md-6">
       <article class="gallery-wrap">
         <div *ngIf="product.picture" class="img-big-wrap" style="text-align: center">
